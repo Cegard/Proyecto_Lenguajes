@@ -185,7 +185,7 @@ def recognizingEntonces(state, string, index):
 
 
 # Simulación autómata que acepta cadenas del tipo
-# [@|$|_]?[a-Z]+([@|$|_]|[a-Z]|[0-9])*
+# [@|$|_]?[a-Z]([@|$|_]|[a-Z]|[0-9])*
 def recognizingID(state, string, index):
     
     if ((state == 0) and (string[index] in symbols)):

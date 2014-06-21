@@ -1,5 +1,12 @@
+import string
+
 # los comentarios para este lenguaje serán --
 # solo serán de una línea 
+
+symbols = {'$','_','@'}
+ar_ops = {'+','-','*','/','='}
+lo_ops = {'<','>','!'}
+interruptions = ar_ops.union(lo_ops).union(' ')
 
 # se remueven los comentarios encontrados 
 def scan(program):
@@ -32,4 +39,34 @@ def scan(program):
         program = program[:ocurrences] + program[counter:]
         ocurrences = program.find(' ')
         counter = ocurrences
-    ###################################################
+        ###################################################
+###########################################################
+
+
+# reconocimiento de tokens
+def analysis(program):
+    
+    lexemeBegin = 0
+    lookAhead = 0
+    
+    while(lookAhead < len(program)):
+        pass
+##########################
+
+
+# Simulación autómata que acepta la cadena si_
+def recognizingSi_(state, string, index):
+    
+    if ((state == 0) and (string[index] == 's')):
+        recognizingSi_(1, string, index+1)
+    elif ((state == 1) and (string[index] == 'i')):
+        recognizingSi_(2, string, index+1)
+    elif ((state == 2) and (string[index] == '_')):
+        recognizingSi_(3, string, index+1)
+    elif ((state == 3) and (string[index] in interruptions)):
+        return index
+    else:
+        return -1
+###############################################
+  
+    
